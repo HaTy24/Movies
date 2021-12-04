@@ -1,0 +1,68 @@
+@import "../../Sass/variable";
+.footer {
+  &-top {
+    background-color: $third-color;
+    padding: 10px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &-title {
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 3rem;
+      margin-right: 20px;
+    }
+    h2 {
+      font: size 1.5rem;
+      font-weight: bold;
+    }
+  }
+  form {
+    display: flex;
+  }
+  &-input {
+    width: 400px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    outline: none;
+  }
+  &-bottom {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 30px 50px;
+    gap: 50px;
+    background-color: $second-color;
+  }
+  &-item {
+    &:nth-child(1),
+    &:nth-child(2) {
+      border-right: 1px solid $text-color;
+    }
+    span {
+      display: block;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    &-top {
+      display: block;
+      padding: 20px;
+    }
+    &-title {
+      margin-bottom: 20px;
+    }
+    &-item {
+      &:nth-child(1),
+      &:nth-child(2) {
+        padding-bottom: 20px;
+        border-right: none;
+        border-bottom: 1px solid $text-color;
+      }
+    }
+    .footer-bottom {
+      gap: 20px;
+    }
+  }
+}

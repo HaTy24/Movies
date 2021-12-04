@@ -1,0 +1,92 @@
+@import "../../Sass/variable";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 99;
+  padding: 0 50px;
+  color: $main-color;
+  &-logo {
+    i {
+      font-size: 2rem;
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
+  &-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    background-color: transparent;
+    padding: 1px 10px;
+    border-radius: 10px;
+  }
+  &-item {
+    cursor: pointer;
+    transition: all 0.3s linear;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.5s ease;
+    font-size: $font-title;
+  }
+  &-contact {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    i {
+      font-size: $font-title;
+    }
+  }
+  .fa-bars {
+    display: none;
+    color: #fff;
+  }
+  &-button {
+    border: none;
+    padding: 3px 5px;
+    border-radius: 3px;
+    background-color: green;
+    color: $text-color;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 0 20px;
+    &-items {
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 1fr;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s linear;
+      border-radius: 0px;
+      padding: 40px 0;
+      background-color: $bg-light;
+    }
+    &-item {
+      font-size: $font-des;
+    }
+    &-contact {
+      gap: 20px;
+    }
+
+    .toggle {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .fa-bars {
+      display: inline;
+    }
+  }
+}

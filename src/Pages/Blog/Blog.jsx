@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Banner from "../../Components/Banner/Banner";
-import Post from "../../Components/Post/Post";
 import SideBar from "../../Components/SideBar/SideBar";
+import ListBlogs from "../../Components/ListBlogs/ListBlogs";
+import "./Blog.scss";
 
 function Blog() {
-  const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/blogs")
-      .then((response) => response.json())
-      .then((blogs) => setBlogs(blogs));
-  }, []);
   return (
     <div>
       <Banner
@@ -18,19 +12,8 @@ function Blog() {
         title="Readit Blogs"
       />
       <div className="homeScreen">
-        <div className="items">
-          {blogs.map((blog) => {
-            return (
-              <Post
-                key={blog.id}
-                image={blog.img}
-                title={blog.title}
-                des={blog.description}
-              />
-            );
-          })}
-        </div>
         <SideBar />
+        <ListBlogs />
       </div>
     </div>
   );

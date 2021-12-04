@@ -1,0 +1,23 @@
+@import "../../Sass/variable";
+
+.trending {
+  padding: 0 50px 50px 50px;
+  &-items {
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+  }
+  &-img {
+    margin: 0 auto;
+    display: block;
+    margin-top: 70px;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+  }
+  h3 {
+    padding: 50px;
+  }
+  @media screen and (max-width: 767px) {
+    padding: 0 10px;
+  }
+}

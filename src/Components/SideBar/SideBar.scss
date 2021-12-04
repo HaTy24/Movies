@@ -1,0 +1,36 @@
+@import "../../Sass/variable";
+.sidebar {
+  width: 20%;
+  top: 0;
+  padding-left: 50px;
+  &-about {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  &-hobby {
+    text-align: center;
+  }
+  &-title {
+    border-top: 2px solid $main-color;
+    border-bottom: 2px solid $main-color;
+    margin-bottom: 20px;
+  }
+  &-img {
+    width: 100px;
+    border-radius: 3px;
+  }
+  &-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    li {
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    width: 100%;
+    margin-bottom: 50px;
+    padding-left: 0;
+  }
+}

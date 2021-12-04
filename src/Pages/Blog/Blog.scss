@@ -1,0 +1,6 @@
+.homeScreen {
+  display: flex;
+  @media screen and (max-width: 1023px) {
+    display: block;
+  }
+}

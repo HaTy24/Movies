@@ -1,5 +1,6 @@
 import React from "react";
-import "./Footer.css";
+import { Button } from "react-bootstrap";
+import "./Footer.scss";
 
 function Footer() {
   return (
@@ -14,37 +15,36 @@ function Footer() {
         </div>
         <form>
           <input className="footer-input" type="email" />
-          <input className="footer-button" type="submit" />
+          <Button>get started</Button>
         </form>
       </div>
       <div className="footer-bottom">
         <div className="footer-item">
-          <i className="fab fa-affiliatetheme"></i>
           <h2>Readit Blog</h2>
-          <ul>
-            <li>59h Nguyen Kiem, P.3, Q.Go Vap, TP.HCM</li>
-            <li>0948123445</li>
-            <li>hathienty2000@gmail.com</li>
-            <li>Contact website administrator</li>
-          </ul>
+          <div>
+            <span>59h Nguyen Kiem, P.3, Q.Go Vap, TP.HCM</span>
+            <span>0948123445</span>
+            <span>hathienty2000@gmail.com</span>
+            <span>Contact website administrator</span>
+          </div>
         </div>
         <div className="footer-item">
-          <h2>Readit Blog</h2>
-          <ul>
-            <li>59h Nguyen Kiem, P.3, Q.Go Vap, TP.HCM</li>
-            <li>0948123445</li>
-            <li>hathienty2000@gmail.com</li>
-            <li>Contact website administrator</li>
-          </ul>
+          <h2>Cinema</h2>
+          <div>
+            <span>59h Nguyen Kiem, P.3, Q.Go Vap, TP.HCM</span>
+            <span>0948123445</span>
+            <span>hathienty2000@gmail.com</span>
+            <span>Contact website administrator</span>
+          </div>
         </div>
         <div className="footer-item">
-          <h2>Readit Blog</h2>
-          <ul>
-            <li>59h Nguyen Kiem, P.3, Q.Go Vap, TP.HCM</li>
-            <li>0948123445</li>
-            <li>hathienty2000@gmail.com</li>
-            <li>Contact website administrator</li>
-          </ul>
+          <h2>Netflix</h2>
+          <div>
+            <span>59h Nguyen Kiem, P.3, Q.Go Vap, TP.HCM</span>
+            <span>0948123445</span>
+            <span>hathienty2000@gmail.com</span>
+            <span>Contact website administrator</span>
+          </div>
         </div>
       </div>
     </div>

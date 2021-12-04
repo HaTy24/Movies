@@ -1,0 +1,16 @@
+.listBlogs {
+  padding: 0 50px 70px 0px;
+  margin-left: 30px;
+  width: 80%;
+  &-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+  @media screen and(max-width:1023px) {
+    padding: 0 10px;
+    margin-left: 0;
+    margin-bottom: 50px;
+    width: 100%;
+  }
+}

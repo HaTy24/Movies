@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import "./Footer.scss";
 
 function Footer() {
@@ -15,7 +14,6 @@ function Footer() {
         </div>
         <form>
           <input className="footer-input" type="email" />
-          <Button>get started</Button>
         </form>
       </div>
       <div className="footer-bottom">

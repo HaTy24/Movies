@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
 import Axios from "axios";
 import "./WriteItem.scss";
 
@@ -73,9 +72,9 @@ function WriteItem() {
           id="author"
         ></input>
       </form>
-      <Button className="Write-button" onClick={() => handlePost()}>
+      <button className="Write-button" onClick={() => handlePost()}>
         Post
-      </Button>
+      </button>
     </div>
   );
 }

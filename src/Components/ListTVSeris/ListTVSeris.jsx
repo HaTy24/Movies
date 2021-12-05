@@ -1,4 +1,3 @@
-import Button from "react-bootstrap/Button";
 import React, { useEffect, useState } from "react";
 import { BaseUrl, key } from "../../Config/Config";
 import TVItem from "../TVItem/TVItem";
@@ -40,14 +39,14 @@ function ListTVSeris() {
           );
         })}
       </div>
-      <Button
+      <button
         onClick={() => {
           handleMore();
         }}
         style={{ marginBottom: "30px" }}
       >
         Load More
-      </Button>
+      </button>
     </div>
   );
 }

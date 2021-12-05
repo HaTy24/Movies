@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import { img_300, img_500, unavailable } from "../../../Config/Config";
+import {
+  BaseUrl,
+  img_300,
+  img_500,
+  unavailable,
+  key,
+} from "../../../Config/Config";
 import "../SinglePage.scss";
 
 function SingleTVCast() {
@@ -10,16 +16,12 @@ function SingleTVCast() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/tv/${path}/credits?api_key=05a2f1d12401e46de40b441e5576e684&language=en-US`
-    )
+    fetch(BaseUrl + `tv/${path}/credits` + key + `&language=en-US`)
       .then((response) => response.json())
       .then((cast) => setCast(cast.cast));
   }, [path]);
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/tv/${path}?api_key=05a2f1d12401e46de40b441e5576e684&language=en-US`
-    )
+    fetch(BaseUrl + `tv/${path}` + key + `&language=en-US`)
       .then((response) => response.json())
       .then((result) =>
         setResult({

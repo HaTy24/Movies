@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
+import { BaseUrl, key } from "../../Config/Config";
 import MoviesItem from "../../Components/MoviesItem/MoviesItem";
 import "./ListMovies.scss";
 
@@ -11,9 +12,7 @@ function ListMovies() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=05a2f1d12401e46de40b441e5576e684&language=en-US&page=${path}`
-    )
+    fetch(BaseUrl + `movie/popular` + key + `&language=en-US&page=${path}`)
       .then((response) => response.json())
       .then((movies) => setMovies(movies.results));
   }, [path]);

@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Carousel } from "react-bootstrap";
-import { img_300 } from "../../Config/Config";
+import { BaseUrl, img_300, key } from "../../Config/Config";
 import "./Trending.scss";
 
 function Trending() {
   const [trending, setTrending] = useState([]);
   useEffect(() => {
-    fetch(
-      "https://api.themoviedb.org/3/trending/all/day?api_key=05a2f1d12401e46de40b441e5576e684"
-    )
+    fetch(BaseUrl + "trending/all/day" + key)
       .then((response) => response.json())
       .then((trending) => setTrending(trending.results));
   });

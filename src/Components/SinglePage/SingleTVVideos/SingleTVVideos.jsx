@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
+import { BaseUrl, key } from "../../../Config/Config";
 
 function SingleTVVideos() {
   const [tvVideos, setTvVideos] = useState([]);
@@ -7,9 +8,7 @@ function SingleTVVideos() {
   const path = location.pathname.split("/")[2];
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/tv/${path}/videos?api_key=05a2f1d12401e46de40b441e5576e684&language=en-US`
-    )
+    fetch(BaseUrl + `tv/${path}/videos` + key + `&language=en-US`)
       .then((response) => response.json())
       .then((tvVideos) => setTvVideos(tvVideos.results));
   });

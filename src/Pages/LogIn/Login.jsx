@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { RestUrl } from "../../Config/Config";
 import "./Login.scss";
 
 function Login({ login }) {
@@ -24,9 +25,7 @@ function Login({ login }) {
   });
 
   useEffect(() => {
-    axios
-      .get(" http://localhost:3000/user")
-      .then((response) => setUser(response.data));
+    axios.get(RestUrl + "user").then((response) => setUser(response.data));
   }, []);
 
   const handleInputSignIn = (e) => {
@@ -61,31 +60,42 @@ function Login({ login }) {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    user.forEach((i) => {
-      if (
-        i.userName === inputSignIn.userName &&
-        i.password === inputSignIn.password
-      ) {
-        login(0);
-      }
-    });
+    inputSignIn.userName === "" || inputSignIn.password === ""
+      ? alert("Nhập đầy đủ thông tin !!!")
+      : user.forEach((i) => {
+          if (
+            i.userName === inputSignIn.userName &&
+            i.password === inputSignIn.password
+          ) {
+            login(0);
+            alert("Đăng nhập thành công!!!");
+          }
+        });
   };
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3000/user", {
-      userName: inputSignUp.userName,
-      password: inputSignUp.password,
-      email: inputSignUp.email,
-    });
-    inputSignUp.password !== inputSignUp.confirm
-      ? setErrors({ ...errors, confirm: "Please confirm password!!!" })
-      : setInputSignUp({
-          email: "",
-          userName: "",
-          password: "",
-          confirm: "",
-        });
+    inputSignUp.userName === "" ||
+    inputSignUp.password === "" ||
+    inputSignUp.email === "" ||
+    inputSignUp.confirm
+      ? alert("Nhập đầy đủ thông tin!!!")
+      : console.log("null");
+    if (inputSignUp.password !== inputSignUp.confirm) {
+      setErrors({ ...errors, confirm: "Please confirm password!!!" });
+    } else {
+      axios.post(RestUrl + "user", {
+        userName: inputSignUp.userName,
+        password: inputSignUp.password,
+        email: inputSignUp.email,
+      });
+      setInputSignUp({
+        email: "",
+        userName: "",
+        password: "",
+        confirm: "",
+      });
+    }
   };
 
   const handleSlide = () => {
@@ -165,7 +175,7 @@ function Login({ login }) {
               id="password"
               value={inputSignUp.password}
             />
-            <span className="login-errors">{errors.password}</span>
+            <p className="login-errors">{errors.password}</p>
             <label htmlFor="confirm">Confirm Password</label>
             <input
               onBlur={validation}
@@ -174,7 +184,7 @@ function Login({ login }) {
               id="confirm"
               value={inputSignUp.confirm}
             />
-            <span className="login-errors">{errors.confirm}</span>
+            <p className="login-errors">{errors.confirm}</p>
             <button className="login-button" onClick={(e) => handleSignUp(e)}>
               Sign up
             </button>

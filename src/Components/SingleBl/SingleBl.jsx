@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
+import { RestUrl } from "../../Config/Config";
 import "./SingleBl.scss";
 
 function SingleBlog() {
@@ -7,7 +8,7 @@ function SingleBlog() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   useEffect(() => {
-    fetch(`http://localhost:3000/blogs/${path}`)
+    fetch(RestUrl + `blogs/${path}`)
       .then((response) => response.json())
       .then((data) => setResult(data));
   }, [path]);

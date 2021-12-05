@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import React, { useEffect, useState } from "react";
+import { BaseUrl, key } from "../../Config/Config";
 import TVItem from "../TVItem/TVItem";
 import "./ListTVSeris.scss";
 
@@ -9,22 +10,16 @@ function ListTVSeris() {
   const [page, setPage] = useState(2);
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/tv/popular?api_key=05a2f1d12401e46de40b441e5576e684&language=en-US&page=1`
-    )
+    fetch(BaseUrl + `tv/popular` + key + `&language=en-US&page=1`)
       .then((response) => response.json())
       .then((tvseris) => setTvseris(tvseris.results));
   }, []);
 
   const handleMore = () => {
     setPage((pre) => pre + 1);
-    fetch(
-      `https://api.themoviedb.org/3/tv/popular?api_key=05a2f1d12401e46de40b441e5576e684&language=en-US&page=${page}`
-    )
+    fetch(BaseUrl + `tv/popular` + key + `&language=en-US&page=${page}`)
       .then((response) => response.json())
       .then((data) => setTvseris([...tvseris, ...data.results]));
-
-    console.log(tvseris);
   };
 
   return (
